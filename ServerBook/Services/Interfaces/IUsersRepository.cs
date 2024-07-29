@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using ServerBook.Models;
+using ServerBook.Services.Errors;
 
-namespace ServerBook.Services.Interfaces
+namespace ServerBook.Services
 {
-    public interface IUsersRepository
+    public interface IUserService
     {
-        User GetUser (string Email , string Password);
-
-        
+        Task<Response<string>> Authenticate(string Email, string password);
     }
 }

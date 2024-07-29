@@ -1,41 +1,38 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using ServerBook.Models;
+using ServerBook.Services;
+using System.Threading.Tasks;
 using ServerBook.Models.Dtos;
-using ServerBook.Services.Interfaces;
 
 namespace ServerBook.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class AuthController : Controller
+    [Route("api/[controller]")]
+    public class ApiAuthController : ControllerBase
     {
-       private readonly IJwtAuthenticationManager jwtAuthenticationManager;
+        private readonly IUserService _userService;
 
-        public AuthController(IJwtAuthenticationManager jwtAuthenticationManager)
+        public ApiAuthController(IUserService userService)
         {
-            this.jwtAuthenticationManager = jwtAuthenticationManager;
-
+            _userService = userService;
         }
 
         [HttpPost("login")]
-        public IActionResult Authenticate([FromBody] LoginDto loginDto)
+        public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
-            var token = jwtAuthenticationManager.Authenticate(loginDto.Email, loginDto.Password);
-            if (token == null){
-                return Unauthorized();
+            if (model == null || string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
+            {
+                return BadRequest(new { message = "Email and password must be provided" });
             }
 
-            return Ok(new{Token = token});
-            
-          
-        
+            var response = await _userService.Authenticate(model.Email, model.Password);
 
-        
+            if (!response.Success)
+            {
+                return BadRequest(new { message = response.Message });
+            }
+
+            return Ok(new { token = response.Data });
         }
-}
+    }
 }

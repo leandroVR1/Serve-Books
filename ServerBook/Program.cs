@@ -23,8 +23,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Register your custom services
-builder.Services.AddScoped<IJwtAuthenticationManager, JwtAuthenticationManager>();
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddLogging();
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 // JWT Authentication
 builder.Services.AddAuthentication(options =>
