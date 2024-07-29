@@ -14,7 +14,7 @@ builder.Services.AddScoped<IEmailRepository,EmailRepository>();
 
 var app = builder.Build();
 
-
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

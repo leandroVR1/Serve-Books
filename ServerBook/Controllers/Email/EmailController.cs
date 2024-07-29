@@ -5,7 +5,7 @@ using ServerBook.Services.Interfaces;
 namespace ServerBook.Controllers.Email
 {
     [ApiController]
-    [Route("api/v2/[controller]")]
+    [Route("api/[controller]")]
     public class EmailController : ControllerBase
     {
 
