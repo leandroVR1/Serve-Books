@@ -1,8 +1,25 @@
+
+using Microsoft.EntityFrameworkCore;
+using ServerBook.Data;
+using ServerBook.Services;
+
 using ServerBook.Services.Interfaces;
 using ServerBook.Services.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//mysql
+builder.Services.AddDbContext<BaseContext> (options =>
+                            options.UseMySql(
+                                builder.Configuration.GetConnectionString("MySqlConnection"),
+                                Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")
+));//importado
+
+builder.Services.AddScoped<UsersRepository>();//importado
+builder.Services.AddScoped<BookRepository>();//importado
+
+//controllers
+builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -13,8 +30,6 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IEmailRepository,EmailRepository>();
 
 var app = builder.Build();
-
-app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -44,7 +59,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
-
+app.MapControllers();//importado
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
