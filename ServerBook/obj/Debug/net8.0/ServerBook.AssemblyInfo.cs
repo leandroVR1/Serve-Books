@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServerBook")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ba50327eed3b4cba2e5c20fadac79a7e1f69c00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c871bde4a8a4cd0ecf4a1662ae8c7c3572854690")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServerBook")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServerBook")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

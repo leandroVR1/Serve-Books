@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using ServerBook.Data;
+using ServerBook.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,13 +12,17 @@ builder.Services.AddDbContext<BaseContext> (options =>
                                 Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")
 ));//importado
 
+builder.Services.AddScoped<UsersRepository>();//importado
+builder.Services.AddScoped<BookRepository>();//importado
+
+//controllers
+builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
