@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace ServerBook.Models
 {
-    public class User
+    public class Role
     {
         public int Id {get; set;}
-        public String? Name {get; set;}
-        public int RolId {get; set;}
+        public string? Name {get; set;}
 
     }
 }
