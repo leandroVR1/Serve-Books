@@ -14,7 +14,7 @@ builder.Services.AddDbContext<BaseContext> (options =>
 
 builder.Services.AddScoped<UsersRepository>();//importado
 builder.Services.AddScoped<BookRepository>();//importado
-
+builder.Services.AddScoped<LoanRepository>();//importado
 //controllers
 builder.Services.AddControllers();
 // Add services to the container.
