@@ -13,13 +13,14 @@ namespace ServerBook.Services.Repository
     {
         private readonly BaseContext _context;
 
-        public User GetUserByEmailAndPassword(string Email ,string Password)
+        public UsersRepository(BaseContext context)
         {
-
-            return _context.Users.FirstOrDefault(x => x.Email == Email && x.Password == Password);
-            
+            _context = context;
         }
 
-
+        public User GetUser(string Email, string Password)
+        {
+            return _context.Users.FirstOrDefault(x => x.Email == Email && x.Password == Password);
+        }
     }
 }

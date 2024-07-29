@@ -6,9 +6,9 @@ using ServerBook.Models;
 
 namespace ServerBook.Services.Interfaces
 {
-    public interface IAuthService
+    public interface IJwtAuthenticationManager
     {
-        string GenereteJwtToken (User user);
+        string Authenticate (string Email , string Password);
         
     }
 }

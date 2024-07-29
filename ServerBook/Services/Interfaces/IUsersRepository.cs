@@ -8,8 +8,8 @@ namespace ServerBook.Services.Interfaces
 {
     public interface IUsersRepository
     {
-        User GetUserByEmailAndPassword (string Email , string Password);
-        
+        User GetUser (string Email , string Password);
+
         
     }
 }
