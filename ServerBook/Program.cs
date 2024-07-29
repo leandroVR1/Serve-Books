@@ -3,9 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using ServerBook.Data;
 using ServerBook.Services;
 
-using ServerBook.Services.Interfaces;
-using ServerBook.Services.Repository;
-
 var builder = WebApplication.CreateBuilder(args);
 
 //mysql
@@ -25,12 +22,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddControllers();
-
-builder.Services.AddScoped<IEmailRepository,EmailRepository>();
-
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
