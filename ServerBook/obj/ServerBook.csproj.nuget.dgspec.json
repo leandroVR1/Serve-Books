@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniel\\Desktop\\ServeBook\\ServerBook\\ServerBook.csproj": {}
+    "C:\\Users\\daniel\\Desktop\\Prueva\\Serve-Books\\ServerBook\\ServerBook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniel\\Desktop\\ServeBook\\ServerBook\\ServerBook.csproj": {
+    "C:\\Users\\daniel\\Desktop\\Prueva\\Serve-Books\\ServerBook\\ServerBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniel\\Desktop\\ServeBook\\ServerBook\\ServerBook.csproj",
+        "projectUniqueName": "C:\\Users\\daniel\\Desktop\\Prueva\\Serve-Books\\ServerBook\\ServerBook.csproj",
         "projectName": "ServerBook",
-        "projectPath": "C:\\Users\\daniel\\Desktop\\ServeBook\\ServerBook\\ServerBook.csproj",
+        "projectPath": "C:\\Users\\daniel\\Desktop\\Prueva\\Serve-Books\\ServerBook\\ServerBook.csproj",
         "packagesPath": "C:\\Users\\daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniel\\Desktop\\ServeBook\\ServerBook\\obj\\",
+        "outputPath": "C:\\Users\\daniel\\Desktop\\Prueva\\Serve-Books\\ServerBook\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,9 +46,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
