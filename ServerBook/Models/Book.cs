@@ -13,6 +13,7 @@ namespace ServerBook.Models
         public int GenderId {get; set;}
         public DateTime PublicationDate {get; set;}
         public int NumberCopiesAvailable {get; set;}
+        public string? Status {get; set;}
     }
     
 }

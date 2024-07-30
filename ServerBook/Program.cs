@@ -17,6 +17,11 @@ builder.Services.AddDbContext<BaseContext>(options =>
     )
 );
 
+builder.Services.AddScoped<UsersRepository>();//importado
+builder.Services.AddScoped<BookRepository>();//importado
+builder.Services.AddScoped<LoanRepository>();//importado
+//controllers
+builder.Services.AddControllers();
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -51,7 +56,6 @@ builder.Services.AddAuthentication(options =>
 });
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
