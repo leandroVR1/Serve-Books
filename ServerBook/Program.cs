@@ -25,6 +25,7 @@ builder.Services.AddSwaggerGen();
 // Register your custom services
 builder.Services.AddScoped<IJwtAuthenticationManager, JwtAuthenticationManager>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 
 // JWT Authentication
 builder.Services.AddAuthentication(options =>

@@ -15,10 +15,12 @@ namespace ServerBook.Services.Repository
     public class UsersRepository : IUsersRepository
     {
         private readonly BaseContext _context;
+        private readonly IEmailRepository _emailRepository;
 
-        public UsersRepository(BaseContext context)
+        public UsersRepository(BaseContext context, IEmailRepository emailRepository)
         {
             _context = context;
+            _emailRepository = emailRepository;
         }
 
         public async Task<string> AgregarUsuarios(UserRegisterDto userRegisterDto)
@@ -36,9 +38,20 @@ namespace ServerBook.Services.Repository
             if (response.Success)
             {
                 // Crear y agregar nuevo usuario
+                
                 User nuevoUsuario = userRegisterDto.ConvertirARegisterDto(userRegisterDto);
                 _context.Users.Add(nuevoUsuario);
                 await _context.SaveChangesAsync();
+                response.RegistradoCorrecto(response, consultation, "Usuario registrado correctamente");
+
+                // Enviar correo de confirmación
+                var emailDto = new EmailDto
+                {
+                    For = userRegisterDto.Email,
+                    Subject = "Registro Exitoso",
+                    Content = "¡Bienvenido a nuestra plataforma ;D!"
+                };
+                _emailRepository.SendEmail(emailDto);
             }
             return response.ErrorMessage;
         }

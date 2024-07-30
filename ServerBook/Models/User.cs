@@ -11,7 +11,7 @@ namespace ServerBook.Models
         public String? Name {get; set;}
         public String? Email {get; set;}
         public String? Password {get; set;}
-        public int RolId {get; set;} = 2;
+        public int RoleId {get; set;}
         public Role Role { get; set; }
 
     }
