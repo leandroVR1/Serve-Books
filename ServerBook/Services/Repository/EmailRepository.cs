@@ -16,6 +16,7 @@ namespace ServerBook.Services.Repository
         }
         public void SendEmail(EmailDto request)
         {
+    
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse(_config.GetSection("Email:UserName").Value));
             email.To.Add(MailboxAddress.Parse(request.For));

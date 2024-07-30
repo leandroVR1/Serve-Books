@@ -7,8 +7,17 @@ namespace ServerBook.Models.Dtos
 {
     public class UserRegisterDto
     {
-        public string Name { get; set; }
-        public string PassWord { get; set; }
-        public string Email { get; set; }
+        public required string Name { get; set; }
+        public required string PassWord { get; set; }
+        public required string Email { get; set; }
+        public int RoleId {get; set;}
+        public User ConvertirARegisterDto(UserRegisterDto userRegisterDto){
+            return  new(){
+                Name = userRegisterDto.Name,
+                Password = userRegisterDto.PassWord,
+                Email  = userRegisterDto.Email,
+                RoleId = userRegisterDto.RoleId = 2
+            };
+        }
     }
 }

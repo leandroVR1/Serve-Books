@@ -52,5 +52,12 @@ namespace ServerBook.Services.Errors
                 response.Success = false;
             }
         }
+
+        public void RegistradoCorrecto(Response<T> response, dynamic value, string valueErrorMenssage){
+            if (response.Success){
+                response.ErrorMessage = valueErrorMenssage;
+                response.Success = true;
+            }
+        }
     }
 }
